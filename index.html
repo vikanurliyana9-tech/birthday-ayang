@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Hadiah untuk Ayang 🤍</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top left,#dbeafe,transparent 40%),
+        radial-gradient(circle at bottom right,#bfdbfe,transparent 40%),
+        #eff6ff;
+
+    font-family:Georgia,"Times New Roman",serif;
+    color:#334155;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+/* =========================
+   OPENING
+========================= */
+
+.opening{
+    position:fixed;
+    inset:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1e3a8a,
+            #2563eb,
+            #93c5fd
+        );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    z-index:9999;
+
+    transition:1s ease;
+}
+
+.opening.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.opening-content{
+    color:white;
+    padding:30px;
+}
+
+.opening-heart{
+    font-size:70px;
+    animation:heartbeat 1.5s infinite;
+}
+
+.opening h1{
+    font-size:38px;
+    margin:20px 0 10px;
+}
+
+.opening p{
+    line-height:1.8;
+    opacity:.9;
+}
+
+.open-button{
+    margin-top:30px;
+
+    background:white;
+    color:#2563eb;
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:30px;
+
+    font-family:Georgia,serif;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.2);
+
+    transition:.3s;
+}
+
+.open-button:hover{
+    transform:scale(1.05);
+}
+
+@keyframes heartbeat{
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+/* =========================
+   HEARTS
+========================= */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    color:rgba(37,99,235,.18);
+    font-size:25px;
+    animation:floating 9s linear infinite;
+}
+
+.heart:nth-child(1){
+    left:10%;
+}
+
+.heart:nth-child(2){
+    left:30%;
+    animation-delay:2s;
+}
+
+.heart:nth-child(3){
+    left:50%;
+    animation-delay:4s;
+}
+
+.heart:nth-child(4){
+    left:70%;
+    animation-delay:1s;
+}
+
+.heart:nth-child(5){
+    left:90%;
+    animation-delay:3s;
+}
+
+@keyframes floating{
+
+    0%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-10vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   BOOK
+========================= */
+
+.book{
+
+    width:min(900px,92vw);
+
+    height:min(600px,78vh);
+
+    position:relative;
+
+    perspective:2000px;
+
+    opacity:0;
+
+    transform:scale(.9);
+
+    transition:1s ease;
+}
+
+.book.show{
+
+    opacity:1;
+
+    transform:scale(1);
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+    position:absolute;
+
+    width:50%;
+    height:100%;
+
+    right:0;
+    top:0;
+
+    padding:30px 35px;
+
+    background:
+        linear-gradient(
+            to right,
+            hsl(327, 100%, 98%),
+            #ffffff
+        );
+
+    border-radius:0 15px 15px 0;
+
+    box-shadow:
+        0 15px 45px rgba(30,64,175,.18);
+
+    transform-origin:left center;
+
+    transition:
+        transform 1s ease,
+        z-index 0s .5s;
+
+    backface-visibility:hidden;
+
+    overflow:hidden;
+}
+
+.page::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:18px;
+    top:0;
+
+    width:1px;
+    height:100%;
+
+    background:#bfdbfe;
+}
+
+.page.flipped{
+
+    transform:rotateY(-180deg);
+}
+
+/* =========================
+   COVER
+========================= */
+
+.cover{
+
+    width:100%;
+
+    right:auto;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1e3a8a,
+            #2563eb,
+            #60a5fa
+        );
+
+    color:white;
+
+    border-radius:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    z-index:50;
+}
+
+.cover::before{
+
+    display:none;
+}
+
+.cover-content{
+
+    padding:5px;
+}
+
+.cover-content .heart{
+
+    position:static;
+
+    font-size:70px;
+
+    color:white;
+
+    animation:heartbeat 1.5s infinite;
+}
+
+.cover h1 {
+    font-size: clamp(30px, 5vw, 52px);
+
+    margin: 20px 0 10px;
+}
+
+.cover-content h2{
+
+    color:white;
+
+    font-weight:normal;
+
+    margin-bottom:30px;
+}
+
+.cover-content p{
+
+    color:white;
+
+    line-height:1.8;
+
+    font-style:italic;
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.page-number{
+
+    color:#60a5fa;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+
+    margin-bottom:18px;
+}
+
+h2{
+
+    color:#1d4ed8;
+
+    font-size:23px;
+
+    margin-bottom:20px;
+}
+
+h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+}
+
+p{
+
+    font-size:15px;
+
+    line-height:1.8;
+}
+
+.quote{
+
+    margin-top:25px;
+
+    padding:18px;
+
+    border-left:4px solid #60a5fa;
+
+    background:#eff6ff;
+
+    line-height:1.7;
+
+    font-style:italic;
+}
+
+/* =========================
+   TELEGRAM
+========================= */
+
+.telegram-box{
+
+    margin-top:5px;
+
+    padding:5px;
+
+    border-radius:5px;
+
+    background:#eff6ff;
+
+    border:1px solid #bfdbfe;
+
+    text-align:center;
+}
+
+.telegram-icon{
+
+    font-size:15px;
+
+    margin-bottom:5px;
+}
+
+/* =========================
+   DISTANCE
+========================= */
+
+.distance{
+
+    text-align:center;
+
+    margin:25px 0;
+}
+
+.distance-place{
+
+    color:#1d4ed8;
+
+    font-size:20px;
+
+    font-weight:bold;
+}
+
+.distance-line{
+
+    color:#60a5fa;
+
+    font-size:22px;
+
+    letter-spacing:3px;
+
+    margin:8px 0;
+}
+
+.mode{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    background:#dbeafe;
+
+    color:#1d4ed8;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    letter-spacing:1px;
+}
+
+/* =========================
+   MEMORY
+========================= */
+
+.photo-placeholder{
+
+    width:100%;
+
+    height:220px;
+
+    margin:20px 0;
+
+    border-radius:15px;
+
+    border:2px dashed #93c5fd;
+
+    background:#eff6ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    color:#2563eb;
+}
+
+.memory-photo{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    margin:20px 0;
+}
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+.birthday-date{
+
+    text-align:center;
+
+    color:#2563eb;
+
+    font-size:38px;
+
+    letter-spacing:3px;
+
+    margin:35px 0 25px;
+}
+
+.birthday-message{
+
+    text-align:center;
+
+    line-height:1.9;
+}
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+
+    text-align:center;
+}
+
+.final-heart{
+
+    font-size:65px;
+
+    margin:45px 0 25px;
+
+    animation:heartbeat 1.5s infinite;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.controls{
+
+    position:fixed;
+
+    bottom:25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:12px;
+
+    z-index:1000;
+}
+
+.controls button{
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px 23px;
+
+    border-radius:25px;
+
+    font-family:Georgia,serif;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 15px rgba(37,99,235,.25);
+
+    transition:.3s;
+}
+
+.controls button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+}
+
+.controls button:disabled{
+
+    opacity:.35;
+
+    cursor:not-allowed;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-button{
+
+    position:fixed;
+
+    top:20px;
+    right:20px;
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:white;
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    z-index:2000;
+
+    box-shadow:
+        0 5px 20px rgba(30,64,175,.18);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .book{
+
+        width:92vw;
+
+        height:70vh;
+    }
+
+    .page{
+
+        width:100%;
+
+        border-radius:15px;
+
+        padding:30px;
+    }
+
+    .page.flipped{
+
+        transform:
+            translateX(-105%)
+            rotateY(-15deg);
+
+        opacity:0;
+    }
+
+    p{
+
+        font-size:14px;
+    }
+
+    h2{
+
+        font-size:23px;
+    }
+
+    .photo-placeholder,
+    .memory-photo{
+
+        height:180px;
+    }
+
+    .birthday-date{
+
+        font-size:27px;
+    }
+
+    .controls{
+
+        bottom:18px;
+    }
+
+    .controls button{
+
+        padding:10px 17px;
+
+        font-size:12px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<div class="opening" id="opening">
+
+    <div class="opening-content">
+
+        <div class="opening-heart">
+            ♥
+            HAI SAYANGKU ❤️❤️
+        </div>
+
+        <h1>
+            Untuk Ayang ❤️
+        </h1>
+
+        <p>
+            Ada sesuatu yang aku buat khusus
+            untuk kamu.
+        </p>
+
+        <button
+            class="open-button"
+            onclick="openBook()">
+
+            Buka ya... 💌
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MUSIC
+========================= -->
+
+<audio id="music" loop>
+
+    <!--
+    MASUKKAN FILE LAGU
+    DENGAN NAMA "lagu.mp3"
+    KE FOLDER YANG SAMA
+    DENGAN index.html
+    -->
+
+    <source src="Sampai Jadi Debu.mp3" type="audio/mpeg">
+
+</audio>
+
+<button
+    class="music-button"
+    id="musicButton"
+    onclick="toggleMusic()">
+
+    🎵
+
+</button>
+
+
+<!-- =========================
+     HEARTS
+========================= -->
+
+<div class="hearts">
+
+    <div class="heart">♡</div>
+    <div class="heart">♡</div>
+    <div class="heart">♡</div>
+    <div class="heart">♡</div>
+    <div class="heart">♡</div>
+
+</div>
+
+
+<!-- =========================
+     BOOK
+========================= -->
+
+<div class="book" id="book">
+
+
+<!-- =========================
+     COVER
+========================= -->
+
+<div class="page cover">
+
+    <div class="cover-content">
+
+        <div class="heart">
+            ❤️
+        </div>
+
+
+        <h1 style="font-size: 65px;">
+            A Little Book For You
+        </h1>
+
+        <p>
+            Buka dan Baca pelan-pelan ya 🤍
+        </p>
+
+        <p style="margin-top:10px;">
+            07 September 2003
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     BAB 1
+========================= -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 01 — AWAL CERITA
+    </div>
+
+    <h2>
+        Semuanya Berawal dari Telegram
+    </h2>
+
+    <p>
+        Dari sekian banyak orang yang bisa
+        aku temui, aku nggak pernah menyangka
+        kalau sebuah aplikasi bernama Telegram
+        akan mempertemukan aku dengan seseorang
+        yang akhirnya menjadi begitu berarti.
+    </p>
+
+    <div class="telegram-box">
+
+        <div class="telegram-icon">
+            💬
+        </div>
+
+        <h3>
+            Telegram
+        </h3>
+
+        <p>
+            Tempat sederhana 
+            di mana cerita kita dimulai.
+        </p>
+
+    </div>
+
+    <p style="margin-top:5px;">
+
+        Awalnya mungkin hanya percakapan biasa.
+
+        Tapi ternyata,
+        dari percakapan kecil itu,
+        sebuah cerita besar perlahan dimulai.
+
+    </p>
+
+</div>
+
+
+<!-- =========================
+     BAB 2 — HALAMAN 1
+========================= -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 02 — DARI OBROLAN
+    </div>
+
+    <h2>
+        Dari Obrolan Menjadi Kebiasaan
+    </h2>
+
+    <p>
+
+        Setelah hari pertama itu,
+        kita mulai saling mengenal.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Hari demi hari,
+        percakapan kita semakin panjang.
+
+        Dari yang awalnya cuma ngobrol biasa,
+        lama-lama menjadi sesuatu yang
+        aku tunggu setiap hari.
+
+    </p>
+
+    <div class="quote">
+
+        Kadang sesuatu yang besar
+        memang dimulai dari hal yang sederhana.
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     BAB 2 — HALAMAN 2
+========================= -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 02 — MENJADI NYAMAN
+    </div>
+
+    <h2>
+        Dari Kebiasaan Menjadi Nyaman
+    </h2>
+
+    <p>
+
+        Entah sejak kapan,
+        ngobrol dengan ayang terasa
+        seperti bagian dari hari aku.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Ada rasa senang ketika melihat
+        pesan dari ayang.
+
+        Ada rasa kurang ketika sehari
+        terasa terlalu sepi tanpa cerita.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Mungkin saat itu aku belum sadar,
+        tapi perlahan ayang sudah menjadi
+        seseorang yang aku tunggu.
+
+    </p>
+
+</div>
+
+
+<!-- =========================
+     BAB 2 — HALAMAN 3
+========================= -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 02 — MENJADI KITA
+    </div>
+
+    <h2>
+        Sampai Akhirnya Menjadi "Kita"
+    </h2>
+
+    <p>
+
+        Kita nggak tahu persis
+        kapan semuanya berubah.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Yang awalnya hanya dua orang
+        yang bertemu lewat Telegram,
+        akhirnya menjadi dua orang
+        yang punya cerita sendiri.
+
+    </p>
+
+    <div class="quote">
+
+        Dari "kamu dan aku",
+        perlahan berubah menjadi
+        <b>"kita".</b>
+
+    </div>
+
+    <p style="margin-top:20px;">
+
+        Dan dari sinilah,
+        perjalanan kita benar-benar dimulai.
+
+    </p>
+
+</div>
+
+
+<!-- =========================
+     BAB 3 — ULANG TAHUN
+========================= -->
+
+
+<!-- BAB 3 — HALAMAN 1 -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 03 — HARI SPESIAL
+    </div>
+
+    <h2>
+        07 September 2003
+    </h2>
+
+
+    <p style="text-align:center;">
+
+        Hari ini bukan sekadar tanggal
+        yang ada di kalender.
+
+    </p>
+
+    <p style="text-align:center;margin-top:18px;">
+
+        Hari ini adalah hari ketika
+        seseorang yang sekarang begitu berarti
+        buat aku dilahirkan.
+
+    </p>
+
+    <div class="quote">
+
+        Dan aku bersyukur,
+        karena suatu hari nanti setelah tanggal ini,
+        aku dipertemukan dengan ayang.
+
+    </div>
+
+</div>
+
+
+<!-- BAB 3 — HALAMAN 2 -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 03 — SELAMAT ULANG TAHUN
+    </div>
+
+    <h2>
+        Selamat Ulang Tahun, Ayang 🤍
+    </h2>
+
+    <p>
+
+        Selamat ulang tahun untuk
+        seseorang yang sekarang menjadi
+        salah satu bagian penting dalam hidup aku.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Hari ini kamu bertambah satu tahun lagi. 
+        Semoga di umur Ayang yang ke-23 ini, 
+        semua hal baik datang satu per satu 
+        dalam kehidupan Ayang
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Semoga hari ini menjadi awal
+        dari banyak cerita indah yang baru 💙
+
+    </p>
+
+
+</div>
+
+
+<!-- BAB 3 — HALAMAN 3 -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 03 — TERIMA KASIH
+    </div>
+
+    <h2>
+        Terima Kasih Sudah Hadir
+    </h2>
+
+    <p>
+
+        Aku mungkin nggak selalu bilang
+        secara langsung, tapi aku benar-benar
+        berterima kasih karena ayang hadir
+        di hidup aku.
+
+    </p>
+
+    <p style="margin-top:10px;">
+
+        Terima kasih untuk setiap waktu
+        yang ayang kasih.
+
+        Untuk setiap cerita,
+        perhatian, tawa,
+        dan hal-hal kecil yang udah kita
+        lewatin bareng-bareng
+
+    </p>
+
+    <p style="margin-top:10px;">
+
+        Bahkan dari jarak sejauh ini,
+        ayang tetap berhasil menjadi
+        seseorang yang terasa dekat.
+
+    </p>
+
+    <div class="quote">
+
+        Terima kasih sudah menjadi
+        bagian dari cerita hidup aku. 🤍
+
+    </div>
+
+</div>
+
+
+<!-- BAB 3 — HALAMAN 4 -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 03 — DOAKU UNTUK AYANG
+    </div>
+
+    <h2>
+        Doaku Untuk Ayang
+    </h2>
+
+    <p>
+
+        Semoga langkah ayang ke depannya
+        selalu dimudahkan.
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+        Semoga pekerjaan ayang lancar,
+        rezeki ayang semakin luas,
+        dan semua usaha yang ayang lakukan
+        membuahkan hasil yang baik.
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+        Semoga ketika sedang lelah,
+        ayang selalu punya alasan untuk
+        tetap bertahan dan tersenyum.
+
+    </p>
+
+    <p style="margin-top:15px;">
+
+        Dan semoga semua impian ayang
+        yang belum tercapai,
+        perlahan satu per satu
+        bisa menjadi kenyataan.
+
+    </p>
+
+</div>
+
+
+<!-- BAB 3 — HALAMAN 5 -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 03 — TENTANG JARAK
+    </div>
+
+    <h2 style="text-align:center;">
+        Our Relationship Has<br>
+        No Distance Mode
+    </h2>
+
+    <div class="distance">
+
+        <div class="distance-place">
+            TANGERANG
+        </div>
+
+        <div class="distance-line">
+            ───── ♥ ─────
+        </div>
+
+        <div class="distance-place">
+            KALIMANTAN
+        </div>
+
+        <div class="mode">
+            NO DISTANCE MODE : ON
+        </div>
+
+    </div>
+
+    <p>
+
+        Mungkin hadiah ulang tahun ini
+        nggak bisa aku kasih langsung
+        di depan ayang.
+
+    </p>
+
+    <p style="margin-top:10px;">
+
+        Aku juga nggak bisa tiba-tiba datang
+        membawa kue dan memeluk ayang
+        hari ini.
+
+    </p>
+
+    <p style="margin-top:10px;">
+
+        Tapi setidaknya,
+        aku bisa mengirimkan sedikit bagian
+        dari hati aku melalui buku kecil ini.
+
+    </p>
+
+</div>
+
+
+<!-- BAB 3 — HALAMAN 6 -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 03 — SURAT KECIL
+    </div>
+
+    <h2>
+        Ada Satu Hal yang Ingin Aku Bilang
+    </h2>
+
+    <p>
+
+        Ayang...
+
+    </p>
+
+    <p style="margin-top:1px;">
+
+        Aku nggak tahu perjalanan kita
+        ke depannya akan seperti apa.
+
+    </p>
+
+    <p style="margin-top:10px;">
+
+        Mungkin akan ada banyak hari
+        yang menyenangkan.
+
+        Mungkin juga akan ada hari
+        yang nggak mudah.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Tapi di hari ulang tahun ayang ini,
+        aku cuma ingin ayang tahu satu hal:
+
+    </p>
+
+    <div class="quote">
+
+        Aku senang pernah bertemu ayang.
+        Dan aku bersyukur cerita kita
+        bisa sampai sejauh ini.
+
+    </div>
+
+</div>
+
+
+<!-- BAB 3 — HALAMAN 7 -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 03 — HARAPAN KITA
+    </div>
+
+    <h2>
+        Semoga Kita Tetap Menjadi Kita
+    </h2>
+
+    <p>
+
+        Semoga bertambahnya usia ayang
+        juga membawa kita ke lebih banyak
+        cerita yang bisa kita kenang.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Semoga nanti kita punya lebih banyak
+        foto bersama.
+
+        Lebih banyak tempat yang kita datangi.
+
+        Lebih banyak hari ulang tahun
+        yang bisa dirayakan bersama.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Dan semoga suatu hari nanti,
+        kita nggak perlu lagi merayakan
+        ulang tahun dari dua tempat yang berbeda.
+
+    </p>
+
+</div>
+
+
+<!-- BAB 3 — HALAMAN 8 -->
+
+<div class="page final">
+
+    <div class="page-number">
+        BAB 03 — PENUTUP
+    </div>
+
+    <div class="final-heart">
+        ❤️
+    </div>
+
+    <h2>
+        Sekali Lagi...
+    </h2>
+
+    <p style="margin-top:15px;">
+
+        Selamat ulang tahun, ayang.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Semoga umur yang baru ini
+        membawa lebih banyak kebahagiaan
+        daripada kesedihan.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Semoga semua yang ayang perjuangkan
+        akhirnya menemukan hasil yang indah.
+
+    </p>
+
+    <p style="margin-top:10px;">
+
+        Dan semoga aku masih bisa
+        berada di samping ayang,
+        meskipun untuk sekarang
+        masih dipisahkan jarak.
+
+    </p>
+
+    <p style="
+        margin-top:30px;
+        color:#2563eb;
+        font-size:20px;
+        font-weight:bold;
+    ">
+
+        Happy Birthday, Ayang 🤍
+
+    </p>
+
+</div>
+```
+
+
+<!-- =========================
+     BAB 4
+========================= -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 04 — KENANGAN
+    </div>
+
+    <h2>
+        Hal-Hal Kecil yang Aku Ingat
+    </h2>
+
+    <p>
+
+        Mungkin bagi orang lain,
+        hal-hal kecil tentang kita
+        terlihat biasa saja.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Tapi buat aku,
+        setiap percakapan,
+        setiap tawa,
+        setiap rasa kangen,
+        dan setiap waktu yang kita habiskan
+        tetap punya tempat sendiri
+        di ingatan aku.
+
+    </p>
+
+    <div class="quote">
+
+        Karena kenangan yang paling berharga
+        nggak selalu berupa sesuatu yang besar.
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     BAB 5 — FOTO
+========================= -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 05 — KENANGAN KITA
+    </div>
+
+    <h2>
+        Satu Foto, Banyak Cerita
+    </h2>
+
+    <!--
+    NANTI FOTO KALIAN BISA DIMASUKKAN DI SINI.
+
+    Contoh:
+
+    <img src="foto1.jpg"
+         class="memory-photo">
+
+    -->
+
+   <div style="text-align:center; padding:25px 10px;">
+
+    <div style="display:flex; align-items:center; justify-content:center; gap:20px;">
+
+        <div>
+            <div style="font-size:50px;">👩🏻</div>
+            <b style="color:#2563eb; font-size:18px;">Aku</b>
+        </div>
+
+        <div style="width:150px;">
+            <marquee behavior="alternate" scrollamount="3">
+                ❤️ 💗 💕
+            </marquee>
+
+            <div style="color:#64748b; font-size:16px;">
+                LDR
+            </div>
+        </div>
+
+        <div>
+            <div style="font-size:50px;">👨🏻</div>
+            <b style="color:#2563eb; font-size:18px;">Ayang</b>
+        </div>
+
+    </div>
+
+    <h3 style="color:#2563eb; font-size:23px; margin-top:30px;">
+        Jauh di jarak, dekat di hati. ❤️
+    </h3>
+
+    <p style="font-size:17px; line-height:1.8;">
+        Mungkin kita belum bisa selalu berada
+        di tempat yang sama, tapi setiap hari
+        selalu ada cara untuk tetap merasa dekat.
+    </p>
+
+</div> 
+
+    <p style="text-align:center;">
+
+        Satu foto mungkin hanya sebuah gambar,
+        tapi cerita di baliknya akan selalu
+        menjadi bagian dari kita.
+
+    </p>
+
+</div>
+
+
+
+<!-- =========================
+     BAB 6
+========================= -->
+
+<div class="page">
+
+    <div class="page-number">
+        BAB 09 — SUATU HARI NANTI
+    </div>
+
+    <h2>
+        Sampai Kita Bertemu
+    </h2>
+
+    <p>
+
+        Sekarang kita masih dipisahkan jarak.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Tapi aku percaya akan ada waktunya
+        kita nggak perlu lagi menghitung
+        berapa jauh Tangerang dan Kalimantan.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Nanti kalau kangen,
+        aku nggak perlu cuma melihat layar.
+
+    </p>
+
+    <p style="margin-top:18px;">
+
+        Aku bisa langsung datang,
+        duduk di samping ayang,
+        dan akhirnya memeluk ayang.
+
+    </p>
+
+    <div class="quote">
+
+        Suatu hari nanti,
+        jarak ini hanya akan menjadi
+        bagian dari cerita kita.
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<div class="page final">
+
+    <div class="page-number">
+        HALAMAN TERAKHIR
+    </div>
+
+    <div class="final-heart">
+        ❤️
+    </div>
+
+    <h2>
+        Kalau Suatu Hari<br>
+        Ayang Merindukan Aku...
+    </h2>
+
+    <p style="margin-top:5px;">
+
+        Buka buku ini lagi.
+
+    </p>
+
+    <p style="margin-top:5px;">
+
+        Ingat bahwa pernah ada seseorang
+        yang mencintai ayang dari kejauhan.
+         Seseorang yang mungkin nggak sempurna,
+        tapi selalu ingin tetap ada.
+
+    </p>
+
+    <p style="margin-top:5px;">
+
+        <b>
+            Seseorang itu adalah aku. 🤍
+        </b>
+
+    </p>
+
+    <p style="margin-top:5px;">
+
+        Dan cerita kita...
+
+    </p>
+
+    <p style="
+        margin-top:5px;
+        color:#ec0909;
+        font-size:15px;
+        font-weight:bold;
+    ">
+
+        belum selesai.
+
+</p>
+
+
+</div>
+
+<!-- HALAMAN PENUTUP -->
+<div class="page">
+
+        <div class="heart">💗</div>
+
+        <h2 style="color:#1bccc3; font-size:20px; margin-top:10px; margin-bottom:10px;">
+           💗 Dibuat dari jauh, khusus untuk Ayang. 💗
+        </h2>
+
+        <p style="color:#334155; font-size:15px; font-weight:bold;">
+            07 September 2003 🎂
+        </p>
+
+    </div>
+
+
+<!-- =========================
+     HALAMAN LDR
+========================= -->
+
+<div class="page">
+
+    <h2 style="text-align:center;">
+        📱 Our Relationship Has No Distance Mode
+    </h2>
+
+    <p style="text-align:center;">
+        Karena jarak cuma memisahkan tempat,
+        bukan rasa. ❤️
+    </p>
+
+    <br>
+
+    <div style="text-align:center;">
+
+
+        <!-- CHAT AKU -->
+        <div style="text-align:left; margin-left:5px;">
+            👩🏼 <b>Aku:  📱 Online </b><br>
+            <span style="margin-left:5px;">
+                "Kangen..." 🥺❤️
+            </span>
+        </div>
+
+
+        <div style="text-align:center;">
+            ─────────────── 💗 ───────────────
+        </div>
+
+
+        <!-- BALASAN AYANG -->
+        <div style="text-align:right; margin-right:15px;">
+            👦🏻 <b>Ayang:  📱 Online </b><br>
+            <span style="margin-right:25px;">
+                "Aku juga." 🥺❤️
+            </span>
+        </div>
+
+
+        <div>
+            ❤️ <b>1 Year Together</b> ❤️
+        </div>
+
+    </div>
+
+    <br>
+
+    <p style="text-align:center;">
+        📍 Jarak: jauh
+    </p>
+
+    <p style="text-align:center;">
+        ♾️ Rasa: tetap sama
+    </p>
+
+    <p style="text-align:center;">
+        ⏳ Pertemuan pertama: <b>Loading...</b>
+    </p>
+
+    <br>
+
+    <p style="text-align:center;">
+        <b>
+            Jauh di mata, tapi selalu dekat
+            di hati. ❤️
+        </b>
+    </p>
+
+    <p style="text-align:center;">
+        Sampai nanti kita nggak perlu lagi
+        bilang "kangen" lewat layar,
+        karena bisa langsung ketemu. 🥺❤️
+    </p>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CONTROLS
+========================= -->
+
+<div class="controls">
+
+    <button
+        id="prevBtn"
+        onclick="previousPage()">
+
+        ← Kembali
+
+    </button>
+
+    <button
+        id="nextBtn"
+        onclick="nextPage()">
+
+        Lanjut →
+
+    </button>
+
+</div>
+
+
+<script>
+
+/* =========================
+   OPEN BOOK
+========================= */
+
+function openBook(){
+
+    const opening =
+        document.getElementById("opening");
+
+    const book =
+        document.getElementById("book");
+
+    const music =
+        document.getElementById("music");
+
+    opening.classList.add("hide");
+
+    setTimeout(function(){
+
+        book.classList.add("show");
+
+    },300);
+
+
+    music.play().catch(function(){
+
+        console.log(
+            "Musik belum bisa diputar."
+        );
+
+    });
+
+}
+
+function toggleMusic() {
+    const music = document.getElementById("music");
+    const button = document.getElementById("musicButton");
+
+    if (music.paused) {
+        music.play();
+        button.innerHTML = "🔊";
+    } else {
+        music.pause();
+        button.innerHTML = "🎵";
+    }
+}
+
+
+/* =========================
+   BOOK
+========================= */
+
+const pages =
+    document.querySelectorAll(".page");
+
+let currentPage = 0;
+
+
+function updateBook(){
+
+    pages.forEach(function(page,index){
+
+        if(index < currentPage){
+
+            page.classList.add("flipped");
+
+            page.style.zIndex = index;
+
+        }else{
+
+            page.classList.remove("flipped");
+
+            page.style.zIndex =
+                pages.length - index;
+
+        }
+
+    });
+
+
+    document.getElementById("prevBtn").disabled =
+        currentPage === 0;
+
+    document.getElementById("nextBtn").disabled =
+        currentPage === pages.length - 1;
+
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+function nextPage(){
+
+    if(currentPage < pages.length - 1){
+
+        currentPage++;
+
+        updateBook();
+
+    }
+
+}
+
+
+/* =========================
+   PREVIOUS
+========================= */
+
+function previousPage(){
+
+    if(currentPage > 0){
+
+        currentPage--;
+
+        updateBook();
+
+    }
+
+}
+
+
+/* =========================
+   MUSIC
+========================= */
+
+function toggleMusic(){
+
+    const music =
+        document.getElementById("music");
+
+    const button =
+        document.getElementById("musicButton");
+
+
+    if(music.paused){
+
+        music.play();
+
+        button.innerHTML = "🎵";
+
+    }else{
+
+        music.pause();
+
+        button.innerHTML = "🔇";
+
+    }
+
+}
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "ArrowRight"){
+
+            nextPage();
+
+        }
+
+        if(event.key === "ArrowLeft"){
+
+            previousPage();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   START
+========================= */
+
+updateBook();
+
+</script>
+
+</body>
+</html>
