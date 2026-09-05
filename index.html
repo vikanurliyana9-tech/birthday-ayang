@@ -1970,7 +1970,36 @@ document.addEventListener(
 ========================= */
 
 updateBook();
+/* =========================
+   SWIPE UNTUK HP
+========================= */
 
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener("touchstart", function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+document.addEventListener("touchend", function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, false);
+
+function handleSwipe() {
+    const jarak = touchEndX - touchStartX;
+
+    // Geser minimal 50px supaya tidak salah terbaca
+    if (Math.abs(jarak) < 50) return;
+
+    if (jarak < 0) {
+        // Geser ke kiri = halaman berikutnya
+        nextPage();
+    } else {
+        // Geser ke kanan = halaman sebelumnya
+        prevPage();
+    }
+}
 </script>
 
 </body>
